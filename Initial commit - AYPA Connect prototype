@@ -1,0 +1,72 @@
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+
+export default function AYPAConnectFullPrototype() {
+  return (
+    <div className="min-h-screen bg-white p-6">
+      <h1 className="text-2xl font-bold mb-6">AYPA Connect - Church Management Dashboard</h1>
+
+      <Tabs defaultValue="president">
+        <TabsList className="mb-4">
+          <TabsTrigger value="president">President</TabsTrigger>
+          <TabsTrigger value="vice">Vice President</TabsTrigger>
+          <TabsTrigger value="secretary">Secretaries</TabsTrigger>
+          <TabsTrigger value="finance">Financial Secretary</TabsTrigger>
+          <TabsTrigger value="treasurer">Treasurer</TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="president">
+          <Card><CardContent className="space-y-4">
+            <h2 className="text-lg font-semibold">President Overview</h2>
+            <p>View full member list, financial summaries, events, and reports.</p>
+            <Button>Download Quarterly Report</Button>
+          </CardContent></Card>
+        </TabsContent>
+
+        <TabsContent value="vice">
+          <Card><CardContent className="space-y-4">
+            <h2 className="text-lg font-semibold">Vice President Access</h2>
+            <p>Track activities, assist with approvals, and manage member data.</p>
+            <Button>Generate Weekly Summary</Button>
+          </CardContent></Card>
+        </TabsContent>
+
+        <TabsContent value="secretary">
+          <Card><CardContent className="space-y-4">
+            <h2 className="text-lg font-semibold">Secretary Portal</h2>
+            <Input placeholder="Upload Meeting Minutes (Link)" />
+            <Textarea placeholder="Notices & Announcements" />
+            <Button>Submit</Button>
+          </CardContent></Card>
+        </TabsContent>
+
+        <TabsContent value="finance">
+          <Card><CardContent className="space-y-4">
+            <h2 className="text-lg font-semibold">Financial Secretary</h2>
+            <Input placeholder="Purpose (e.g. Dues, Donations)" />
+            <Input placeholder="Amount (GHS)" type="number" />
+            <Input placeholder="Transaction Date" type="date" />
+            <Button>Record Entry</Button>
+            <Button variant="outline">View Monthly Entries</Button>
+          </CardContent></Card>
+        </TabsContent>
+
+        <TabsContent value="treasurer">
+          <Card><CardContent className="space-y-4">
+            <h2 className="text-lg font-semibold">Treasurer Dashboard</h2>
+            <Input placeholder="Expense Description" />
+            <Input placeholder="Amount Spent (GHS)" type="number" />
+            <Input placeholder="Date" type="date" />
+            <Textarea placeholder="Supporting Notes / Receipts Reference" />
+            <Button>Log Expense</Button>
+            <Button variant="outline">Download Finance Report</Button>
+          </CardContent></Card>
+        </TabsContent>
+      </Tabs>
+    </div>
+  );
+}
